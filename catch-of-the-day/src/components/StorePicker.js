@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from "react"
 
-export default class StorePicker extends React.Component {
+class StorePicker extends Component {
   render() {
     return (
       <form className="store-selector">
@@ -11,3 +11,5 @@ export default class StorePicker extends React.Component {
     )
   }
 }
+
+export default StorePicker
