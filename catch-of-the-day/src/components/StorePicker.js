@@ -1,7 +1,7 @@
-import React, { Component } from "react"
+import React from "react"
 import { getFunName } from "../helpers"
 
-class StorePicker extends Component {
+class StorePicker extends React.Component {
   storeInput = React.createRef()
   goToStore = e => {
     e.preventDefault()
