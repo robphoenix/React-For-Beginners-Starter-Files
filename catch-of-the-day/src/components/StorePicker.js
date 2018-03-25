@@ -2,10 +2,9 @@ import React from "react"
 import { getFunName } from "../helpers"
 
 class StorePicker extends React.Component {
-  storeInput = React.createRef()
   goToStore = e => {
     e.preventDefault()
-    const storeName = this.storeInput.value.value
+    const storeName = this.storeInput.value
     console.log(storeName)
     this.props.history.push(`/store/${storeName}`)
   }
@@ -15,7 +14,9 @@ class StorePicker extends React.Component {
         <h2>Please enter a store</h2>
         <input
           type="text"
-          ref={this.storeInput}
+          ref={storeInput => {
+            this.storeInput = storeInput
+          }}
           required
           placeholder="Store Name"
           defaultValue={getFunName()}

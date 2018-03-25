@@ -1,20 +1,14 @@
 import React from "react"
 
 export class AddFishForm extends React.Component {
-  nameRef = React.createRef()
-  priceRef = React.createRef()
-  statusRef = React.createRef()
-  descRef = React.createRef()
-  imageRef = React.createRef()
-
   createFish = e => {
     e.preventDefault()
     const fish = {
-      name: this.nameRef.value.value,
-      price: parseFloat(this.priceRef.value.value),
-      status: this.statusRef.value.value,
-      desc: this.descRef.value.value,
-      image: this.imageRef.value.value
+      name: this.nameRef.value,
+      price: parseFloat(this.priceRef.value),
+      status: this.statusRef.value,
+      desc: this.descRef.value,
+      image: this.imageRef.value
     }
     this.props.addFish(fish)
     e.currentTarget.reset()
@@ -26,24 +20,28 @@ export class AddFishForm extends React.Component {
         <form className="fish-edit" onSubmit={this.createFish}>
           <input
             name="name"
-            ref={this.nameRef}
+            ref={nameRef => (this.nameRef = nameRef)}
             type="text"
             placeholder="Name"
           />
           <input
             name="price"
-            ref={this.priceRef}
+            ref={priceRef => (this.priceRef = priceRef)}
             type="text"
             placeholder="Price"
           />
-          <select name="status" ref={this.statusRef}>
+          <select name="status" ref={statusRef => (this.statusRef = statusRef)}>
             <option value="available">Fresh!</option>
             <option value="unavailable">Sold Out!</option>
           </select>
-          <textarea name="desc" ref={this.descRef} placeholder="Description" />
+          <textarea
+            name="desc"
+            ref={descRef => (this.descRef = descRef)}
+            placeholder="Description"
+          />
           <input
             name="image"
-            ref={this.imageRef}
+            ref={imageRef => (this.imageRef = imageRef)}
             type="text"
             placeholder="Image"
           />
