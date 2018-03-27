@@ -1,11 +1,15 @@
-import React from "react"
+import React, { Component } from "react"
 import { formatPrice } from "../helpers"
 
-class Order extends React.Component {
+class Order extends Component {
   renderOrder = key => {
     const fish = this.props.fishes[key]
     const count = this.props.order[key]
-    const isAvailable = fish.status == "available"
+    const isAvailable = fish && fish.status === "available"
+
+    // make sure fish is loaded before we continue
+    if (!fish) return null
+
     if (!isAvailable) {
       return (
         <li key={key}>

@@ -1,7 +1,7 @@
 import React from "react"
 import { AddFishForm } from "./AddFishForm"
 
-export class Inventory extends React.Component {
+class Inventory extends React.Component {
   render() {
     return (
       <div className="inventory">
