@@ -1,6 +1,10 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export class AddFishForm extends React.Component {
+  static propTypes = {
+    addFish: PropTypes.func
+  }
   createFish = e => {
     e.preventDefault()
     const fish = {
